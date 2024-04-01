@@ -1,0 +1,440 @@
+*{
+    font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+.titleMenu{
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(45deg,rgb(72, 24, 118),rgb(57, 187, 226) );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.header{
+    text-align: center;
+    transition :width 2s;
+    p{
+        color: #000000;
+        display: none;
+        font-size: medium;
+        animation: gow 0.5s ease-in-out;   
+    }
+   
+    
+}
+
+@keyframes gow {
+0%{
+    transform: scaleY(0);
+}
+100%{
+    transform: scaleY(1);
+    
+}
+}
+
+    
+.header>h1{
+    display: inline-block;
+    color: rgb(78, 127, 129);
+    font-size: 5em; 
+}
+
+.header>h1:hover>p{
+    display: inline-block;
+}
+
+
+
+.note{
+    width: 40%;
+    height: 100%;
+    padding: 40px 20px;
+    margin: 40px 0px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background: rgb(155, 225, 255);
+    transition: all ease-in-out 0.7s;
+}
+.note:hover{
+    border: 2px solid rgb(50, 118, 128);
+    border-radius: 18px;
+}
+
+.note>p{
+    font-weight: 800;
+    width: 100%;
+    /*animation: rule 8s infinite;*/
+}
+  
+@keyframes rule {
+    0%{
+        transform: translateY(0px);
+    }
+    25%{
+        color: white;
+        transform: translateY(-8px);
+    }
+
+    50%{
+        color: black;
+        transform: translateY(8px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.logInForm{
+    width: 20rem;
+    height: 24rem;
+    padding: 12px;
+    margin: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 12px;
+    background: rgb(155, 225, 255);
+    transition: all ease-in-out 0.5s;
+    label{
+        font-size: large;
+        font-weight:bolder;
+    }
+    
+}
+
+.logInForm:hover{
+    box-shadow:rgb(72, 24, 118)  0px 12px 20px;
+    translate: 0px -4px;
+}
+
+.fullButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height:2em;
+    font-weight: bold;
+    color: white;
+    background-color:rgb(72, 24, 118);
+    border-radius: 8px;
+    border: none;
+    padding: 4px ;
+    cursor: pointer;
+}
+
+.fullButton:hover{
+    background-color:blueviolet;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:12px 20px 12px 20px;
+    position: sticky;
+    top: 0;
+}
+
+.blur{
+    color: transparent;
+    text-shadow: 0 0 8px #000;
+}
+
+.fullButton>p{
+    padding:0px 8px;
+}
+.mixedContent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+#timer{
+    display: inline-block;
+    font-weight: bold;
+    font-size: large;
+    
+}
+
+.exammenu{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+}
+#UserId,#UserName{
+    background: none;
+    border: none;
+    font-size: large;
+    font-weight: bold;
+}
+
+#UserId:disabled, #UserName:disabled{
+    color: #000000;
+}
+
+.exammenu>button{
+    font-weight: bold;
+    font-size: larger;
+    color: white;
+    background-color:rgb(72, 24, 118);
+    border-radius: 8px;
+    border:none;
+    padding: 10px ;
+    cursor: pointer;
+}
+.examView{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.examView{
+    background-color:rgb(126, 213, 216);
+    padding: 12px;
+    margin: 0px 20px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+}
+.dropdown {
+  position: relative;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  input{
+    height: 2.6rem;
+    border: white solid 2px;
+    border-radius: 12px;
+    padding: 4px;
+    font-size: 18px;
+}
+input[type=text]:focus{
+    outline-width: 0;
+    border: rgb(72, 24, 118) solid 2px;
+}
+}
+.dropdown-content {
+    align-self:last baseline;
+    top: 3rem;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.303);
+    z-index: 1;
+    border-radius: 6px ;
+    overflow: hidden;
+  }
+
+.dropdown-content >span {
+    color: black;
+    padding: 12px 0px;
+    padding-left: 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content >span:hover{
+    background-color: #00000026 ;
+  }
+  .show{
+    display: block;
+  }
+ 
+
+.bgLogo{
+    position: absolute;
+    top: 100%;
+    left: 80%;
+    width:400px;
+    height: 400px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+#quizForm p{
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-top: 0;
+}
+
+#quizForm > input[type="radio"]{
+    margin-right: 10px;
+}
+
+#quizForm> label{
+    width: 100px; 
+}
+
+#quizForm{
+    height: auto;
+    overflow-y:auto
+}
+
+.formDiv{
+    padding: 10px 16px;
+}
+
+
+#startDialog{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    animation: showStart 0.5s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.359);
+    
+    height: 140;
+    border: gray 5px;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+#startDialog>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.startButton{
+    font-weight: bold;
+    font-size: larger;
+    color: white;
+    background-color:rgb(72, 24, 118);
+    border-radius: 8px;
+    border:none;
+    padding: 10px ;
+    cursor: pointer;
+}
+
+.startButton:hover{
+    color: rgb(72, 24, 118);
+    background-color:rgb(191, 123, 255);
+    border-radius: 8px;
+}
+
+
+
+@keyframes showStart {
+    0%{
+      transform: translate(-50%,200%);  
+    }
+}
+
+.x{
+    float: right;
+    text-align: center;
+    background: none;
+    border: none;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.x:hover{
+    color: rgb(138, 15, 15);
+    background-color: none;
+    filter: drop-shadow(-1px 6px 6px rgba(139, 14, 14, 0.746));
+}
+
+#SubmitButton{
+    display: none;
+    background: white;
+    color: rgb(191, 123, 255);
+    border: none;
+    border-radius: 12px;
+    font-size: larger;
+    font-weight: bolder;
+    padding: 10px 8px;
+}
+
+#myDialog{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.359);
+    animation: showAlert 1s cubic-bezier(0.43, 0.84, 0.2, 1.31);
+    border-radius: 12px;
+    border: none;
+    padding: 20px;
+}
+
+@keyframes showAlert {
+    0%{
+        transform: translate(-50%,100%);  
+      }
+  }
+  .dialogBoxButton{
+    text-align: center;
+    padding-top: 8px;
+  }
+  .dialogBoxButton>button{
+        font-size: medium;
+        padding: 4px 10px;
+        border: 2px solid rgb(235, 135, 135);
+        border-radius:10px ;
+    }
+
+.right-click{
+    position: absolute; 
+    text-align: center; 
+    background: rgb(222, 147, 147);
+    box-shadow: 2px 2px 8px rgb(42, 47, 49);
+    border-radius: 4px;
+    height: auto;
+}
+
+#SubmitDialog{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.359);
+    width: 300px;
+    border: gray 5px;
+    border-radius: 12px;
+    padding: 20px;
+}
+.YesorNo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.YesorNo>button{
+    font-size: large;
+    padding: 4px 10px;
+    border: 2px solid skyblue;
+    border-radius:10px ;
+}
+.YesorNo>button:hover{
+    background-color: rgb(66, 201, 255);
+    color: white;
+    border: 2px solid rgb(68, 124, 147);
+    animation: yesButton 1s infinite;
+}
+
+@keyframes yesButton{
+    
+    50%{
+        border: 2px solid  white;
+    }
+}
+
+.submitCompolete{
+    text-align: center;
+}

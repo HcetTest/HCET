@@ -1,0 +1,60 @@
+const sheetName = 'Sheet1'
+const scriptProp = PropertiesService.getScriptProperties()
+
+function initialSetup () {
+  const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
+  scriptProp.setProperty('key', activeSpreadsheet.getId())
+}
+
+function doPost (e) {
+  const lock = LockService.getScriptLock()
+  lock.tryLock(10000)
+
+  try {
+    const doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
+    const sheet = doc.getSheetByName(sheetName)
+
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()-1).getValues()[0]
+    const nextRow = sheet.getLastRow() + 1
+
+    const newRow = headers.map(function(header) {
+      return e.parameter[header]
+    })
+    //console.log("new Row"+newRow)
+
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow])
+    var score = getDataFromAnotherSheet(newRow)
+    sheet.getRange(nextRow,13).setValue(score)
+  }
+
+  catch (e) {
+    return  HtmlService.createHtmlOutputFromFile('ErrorPage')
+  }
+
+  finally {
+    lock.releaseLock()
+  }
+
+var end =  HtmlService.createHtmlOutputFromFile('EndPage')
+end.append('<p>Your result will be announced shortly</p>')
+return end
+}
+
+
+function getDataFromAnotherSheet(newRow) {
+  const testRow = newRow.slice(2)
+  const targetSpreadsheetId = "1ZR9PhqQOyg-JWb0A4GoB2vVpr9vmhkHzweGgOSIJgOM"; 
+  const ss = SpreadsheetApp.openById(targetSpreadsheetId);
+  const sheet = ss.getSheetByName("Sheet1");
+  var score =0;
+  var answer = sheet.getRange("A2:A11").getValues();
+  answer.forEach(function(item,index){
+    if(item === testRow[index]){
+      score+=1;
+    }
+  })
+  //console.log(newRow)
+  return score;
+}
+
+
